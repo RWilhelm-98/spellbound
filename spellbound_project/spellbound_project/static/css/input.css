@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@source not "./tailwindcss.exe";
+@source not "./daisyui{,*}.mjs";
+@source "../../../templates/**/*.html";
+@source "../../../spellbound/templates/**/*.html";
+
+@plugin "./daisyui.mjs";
+
+@theme {
+  --font-cinzel: "Cinzel", serif;
+  --font-jakarta: "Plus Jakarta Sans", sans-serif;
+  
+  --color-magic-deep: #0b071e;
+  --color-magic-purple: #1b0f33;
+  --color-magic-indigo: #2d1b54;
+  --color-magic-magenta: #6366f1;
+  --color-magic-gold: #f59e0b;
+  --color-magic-gold-light: #fef08a;
+}
+
+body {
+  font-family: var(--font-jakarta);
+  background-color: var(--color-magic-deep);
+  color: #f3f4f6;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6, .font-display {
+  font-family: var(--font-cinzel);
+}
+
+.glass-panel {
+  background: rgba(27, 15, 51, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card-hover {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card-hover:hover {
+  background: rgba(45, 27, 84, 0.75);
+  border-color: rgba(245, 158, 11, 0.4);
+  box-shadow: 0 10px 30px -10px rgba(139, 92, 246, 0.4);
+  transform: translateY(-6px);
+}
+
+.gold-text-glow {
+  text-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+}
+
+.purple-glow-glow {
+  box-shadow: 0 0 40px rgba(99, 102, 241, 0.25);
+}

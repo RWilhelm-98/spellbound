@@ -1,0 +1,7 @@
+[build]
+  command = "pip install -r requirements.txt && python export_static.py"
+  publish = "dist"
+
+[build.environment]
+  PYTHON_VERSION = "3.11"
+
