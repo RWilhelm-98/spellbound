@@ -25,7 +25,7 @@ except ImportError as e:
 def export_static_site():
     print("Step 1: Running collectstatic to gather all assets...")
     # Gather static files
-    call_command('collectstatic', '--noinput', clear=True)
+    call_command('collectstatic', '--noinput', clear=True, ignore_patterns=['input.css', '*.mjs'])
 
     print("\nStep 2: Rendering portfolio page...")
     client = Client()
