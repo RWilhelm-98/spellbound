@@ -559,10 +559,6 @@
         <form id="contact-form" class="space-y-6" method="POST" action="" enctype="multipart/form-data">
             {% csrf_token %}
             <input type="hidden" name="form-name" value="contact" />
-            <!-- Honeypot: hidden from humans, bots will fill it in -->
-            <div style="display:none" aria-hidden="true">
-                <label>Leave this blank <input type="text" name="bot-field" tabindex="-1" autocomplete="off"></label>
-            </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <!-- Name -->
                 <div class="space-y-2">
