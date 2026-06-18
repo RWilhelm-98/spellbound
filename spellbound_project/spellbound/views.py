@@ -28,10 +28,6 @@ def index(request):
         }
         service_name = service_labels.get(service_tier, service_tier or 'Not specified')
 
-        # Honeypot: bots fill hidden fields, humans leave them blank
-        if request.POST.get('bot-field', '').strip():
-            return JsonResponse({'status': 'success', 'message': 'Your summoning scroll has been sent! We will return to you within one moon cycle (or 2 business days).'})
-
         # Validation
         if not name or not email_address:
             return JsonResponse({'status': 'error', 'message': 'Name and Email are required fields.'}, status=400)
@@ -53,11 +49,10 @@ Project Description:
 
         try:
             # Create EmailMessage
-            sender = settings.EMAIL_HOST_USER or settings.DEFAULT_FROM_EMAIL
             email = EmailMessage(
                 subject=subject,
                 body=email_body,
-                from_email=f'Spellbound Editing <{sender}>',
+                from_email=settings.DEFAULT_FROM_EMAIL or 'noreply@spellboundedit.com',
                 to=['rosevictoriawilhelm@gmail.com'],
                 reply_to=[email_address],
             )
