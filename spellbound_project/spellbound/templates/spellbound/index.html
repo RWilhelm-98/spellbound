@@ -672,6 +672,7 @@
 
         <form id="contact-form" class="space-y-6" method="POST" action="" enctype="multipart/form-data">
             {% csrf_token %}
+            <input type="hidden" name="form-name" value="contact" />
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <!-- Name -->
                 <div class="space-y-2">
@@ -866,12 +867,9 @@
             // Append form-name so Netlify Forms intercepts and handles this POST request
             formData.append("form-name", "contact");
 
-            fetch("", {
+            fetch("/", {
                 method: "POST",
-                body: formData,
-                headers: {
-                    "X-Requested-With": "XMLHttpRequest"
-                }
+                body: formData
             })
                 .then(response => {
                     const contentType = response.headers.get("content-type");

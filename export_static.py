@@ -25,7 +25,7 @@ except ImportError as e:
 def export_static_site():
     print("Step 1: Running collectstatic to gather all assets...")
     # Gather static files
-    call_command('collectstatic', '--noinput', clear=True)
+    call_command('collectstatic', '--noinput', clear=True, ignore_patterns=['input.css', '*.mjs'])
 
     print("\nStep 2: Rendering portfolio page...")
     client = Client()
@@ -42,7 +42,7 @@ def export_static_site():
     if target_form_tag in html_content:
         html_content = html_content.replace(
             target_form_tag,
-            '<form id="contact-form" class="space-y-6" name="contact" method="POST" data-netlify="true" enctype="multipart/form-data">'
+            '<form id="contact-form" class="space-y-6" name="contact" method="POST" action="/" data-netlify="true" enctype="multipart/form-data">'
         )
         print("Integrated Netlify Forms into contact page form.")
     else:
