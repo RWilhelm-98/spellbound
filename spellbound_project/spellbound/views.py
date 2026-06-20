@@ -62,7 +62,7 @@ Project Description:
                 email.attach(sample_file.name, sample_file.read(), sample_file.content_type)
 
             email.send()
-            return JsonResponse({'status': 'success', 'message': 'Your summoning scroll has been sent! We will return to you within one moon cycle (or 2 business days).'})
+            return JsonResponse({'status': 'success', 'message': 'Your email has been sent! We will contact you shortly.'})
         except Exception as e:
             logger.error(f"Failed to send email: {e}")
             return JsonResponse({
@@ -70,4 +70,4 @@ Project Description:
                 'message': 'There was a problem sending your message. Please try again later or contact us directly.'
             }, status=500)
 
-    return render(request, 'spellbound/index.html')
+    return render(request, 'spellbound/index.html')
