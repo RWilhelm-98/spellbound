@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, Http404
 from django.http import JsonResponse
 from django.core.mail import EmailMessage
 from django.conf import settings
 import logging
+from .docx_parser import get_portfolio_items, parse_docx
 
 logger = logging.getLogger(__name__)
 
@@ -52,7 +53,7 @@ Project Description:
             email = EmailMessage(
                 subject=subject,
                 body=email_body,
-                from_email=settings.DEFAULT_FROM_EMAIL or 'noreply@spellboundedit.com',
+                from_email=settings.DEFAULT_DEFAULT_FROM_EMAIL or 'noreply@spellboundedit.com' if hasattr(settings, 'DEFAULT_DEFAULT_FROM_EMAIL') else getattr(settings, 'DEFAULT_FROM_EMAIL', 'noreply@spellboundedit.com'),
                 to=['rosevictoriawilhelm@gmail.com'],
                 reply_to=[email_address],
             )
@@ -70,4 +71,15 @@ Project Description:
                 'message': 'There was a problem sending your message. Please try again later or contact us directly.'
             }, status=500)
 
-    return render(request, 'spellbound/index.html')
+    context = {
+        'portfolio_items': get_portfolio_items()
+    }
+    return render(request, 'spellbound/index.html', context)
+
+
+def view_document(request, slug):
+    doc_data = parse_docx(slug)
+    if not doc_data:
+        raise Http404("Portfolio document not found.")
+    return render(request, 'spellbound/document_viewer.html', doc_data)
+

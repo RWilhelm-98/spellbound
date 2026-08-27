@@ -92,3 +92,26 @@ class ContactFormTests(TestCase):
         self.assertEqual(response.json()['status'], 'error')
         self.assertEqual(len(mail.outbox), 0)
 
+
+class PortfolioDocTests(TestCase):
+    def test_portfolio_items_on_index_page(self):
+        """Verify index page context includes portfolio items."""
+        response = self.client.get(reverse('spellbound_index'))
+        self.assertEqual(response.status_code, 200)
+        self.assertIn('portfolio_items', response.context)
+        items = response.context['portfolio_items']
+        self.assertGreaterEqual(len(items), 6)
+
+    def test_view_valid_portfolio_document(self):
+        """GET request to valid portfolio doc route renders document_viewer template."""
+        response = self.client.get(reverse('portfolio_doc', kwargs={'slug': 'copyedit-sample'}))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'spellbound/document_viewer.html')
+        self.assertIn('Copyediting Sample', response.content.decode('utf-8'))
+
+    def test_view_invalid_portfolio_document(self):
+        """GET request to unknown slug returns 404."""
+        response = self.client.get('/portfolio/nonexistent-doc-slug/')
+        self.assertEqual(response.status_code, 404)
+
+

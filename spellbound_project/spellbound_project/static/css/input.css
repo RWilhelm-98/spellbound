@@ -4,6 +4,8 @@
 @source not "./daisyui{,*}.mjs";
 @source "../../../templates/**/*.html";
 @source "../../../spellbound/templates/**/*.html";
+@source "../../../spellbound/**/*.py";
+@source "../../../export_static.py";
 
 @plugin "./daisyui.mjs";
 
@@ -24,6 +26,7 @@ body {
   background-color: var(--color-magic-deep);
   color: #f3f4f6;
   overflow-x: hidden;
+  min-height: 100vh;
 }
 
 h1, h2, h3, h4, h5, h6, .font-display {
@@ -54,4 +57,37 @@ h1, h2, h3, h4, h5, h6, .font-display {
 
 .purple-glow-glow {
   box-shadow: 0 0 40px rgba(99, 102, 241, 0.25);
+}
+
+/* Document Viewer Layout Rules */
+.docx-viewer-container {
+  width: 100%;
+  max-width: 80rem; /* max-w-7xl */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.docx-viewer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  width: 100%;
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .docx-viewer-grid.has-sidebar {
+    grid-template-columns: minmax(0, 8fr) minmax(0, 4fr);
+  }
+  .docx-viewer-grid.no-sidebar {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.docx-document-paper {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }

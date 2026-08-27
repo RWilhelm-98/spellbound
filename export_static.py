@@ -61,13 +61,36 @@ def export_static_site():
         f.write(html_content)
     print(f"Wrote index.html to {index_path}")
 
+    # Render and export portfolio document pages
+    print("\nStep 3: Rendering individual portfolio document pages...")
+    from spellbound.docx_parser import get_portfolio_items
+    portfolio_dir = os.path.join(dist_dir, 'portfolio')
+    os.makedirs(portfolio_dir, exist_ok=True)
+
+    for item in get_portfolio_items():
+        slug = item['slug']
+        res = client.get(f'/portfolio/{slug}/')
+        if res.status_code == 200:
+            doc_html = res.content.decode('utf-8')
+            # Save to dist/portfolio/<slug>/index.html
+            item_dir = os.path.join(portfolio_dir, slug)
+            os.makedirs(item_dir, exist_ok=True)
+            with open(os.path.join(item_dir, 'index.html'), 'w', encoding='utf-8') as f:
+                f.write(doc_html)
+            # Save to dist/portfolio/<slug>.html
+            with open(os.path.join(portfolio_dir, f"{slug}.html"), 'w', encoding='utf-8') as f:
+                f.write(doc_html)
+            print(f"  Exported /portfolio/{slug}/ and /portfolio/{slug}.html")
+        else:
+            print(f"  Warning: Failed to render /portfolio/{slug}/ (Status: {res.status_code})")
+
     # Copy staticfiles folder to dist/static
     src_static_dir = os.path.join(project_dir, 'staticfiles')
     dst_static_dir = os.path.join(dist_dir, 'static')
     
     if os.path.exists(src_static_dir):
         shutil.copytree(src_static_dir, dst_static_dir)
-        print(f"Copied static assets from {src_static_dir} to {dst_static_dir}")
+        print(f"\nCopied static assets from {src_static_dir} to {dst_static_dir}")
     else:
         print(f"Error: staticfiles directory not found at {src_static_dir}")
         sys.exit(1)
@@ -77,3 +100,4 @@ def export_static_site():
 
 if __name__ == '__main__':
     export_static_site()
+
