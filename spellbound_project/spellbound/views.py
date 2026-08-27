@@ -68,7 +68,7 @@ Project Description:
             logger.error(f"Failed to send email: {e}")
             return JsonResponse({
                 'status': 'error',
-                'message': 'There was a problem sending your message. Please try again later or contact us directly.'
+                'message': 'There was a problem sending your message. Please try again later or contact me directly.'
             }, status=500)
 
     context = {
