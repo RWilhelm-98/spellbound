@@ -100,7 +100,7 @@ class PortfolioDocTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn('portfolio_items', response.context)
         items = response.context['portfolio_items']
-        self.assertGreaterEqual(len(items), 6)
+        self.assertGreaterEqual(len(items), 5)
 
     def test_view_valid_portfolio_document(self):
         """GET request to valid portfolio doc route renders document_viewer template."""

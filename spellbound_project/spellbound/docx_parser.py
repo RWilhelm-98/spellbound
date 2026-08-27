@@ -69,19 +69,6 @@ PORTFOLIO_ITEMS = {
         'genre': 'Editorial Feedback Letter',
         'description': "A professional editor's note offering detailed guidance on narrative voice, sentence length variation, clarity considerations, and suspense building.",
         'icon': 'note'
-    },
-    'website-content': {
-        'slug': 'website-content',
-        'filename': 'Website Content.docx',
-        'title': 'Emphasis Editing Vision & Philosophy',
-        'subtitle': 'Brand Overview & Bio',
-        'category': 'Brand & Overview',
-        'category_code': 'about',
-        'badge_class': 'bg-indigo-500/20 text-indigo-300 border-indigo-500/30',
-        'author': 'Grace Zurawell',
-        'genre': 'Brand Guide & Founder Bio',
-        'description': "An overview of Emphasis Editing's mission, Grace Zurawell's background in Classics, editing values, service offerings, and commitment to authors.",
-        'icon': 'brand'
     }
 }
 

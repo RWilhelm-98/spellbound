@@ -380,28 +380,34 @@
 <!-- Portfolio Section -->
 <section id="portfolio" class="py-24 px-6 max-w-7xl mx-auto space-y-16">
     <div class="text-center space-y-4">
-        <span class="text-sm font-bold text-magic-gold tracking-widest uppercase font-semibold">Sample Documents & Editorial Showcase</span>
+        <span class="text-sm font-bold text-magic-gold tracking-widest uppercase font-semibold">Sample Documents &
+            Editorial Showcase</span>
         <h2 class="font-display text-3xl sm:text-5xl font-bold text-white">Portfolio Showcase</h2>
         <p class="text-slate-400 max-w-2xl mx-auto text-sm sm:text-base">
-            Click any portfolio sample below to view the full document with live editor notes, inline margin comments, and tracked revisions from Grace Zurawell.
+            Click any portfolio sample below to view the full document with live editor notes, inline margin comments,
+            and tracked revisions from Grace Zurawell.
         </p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
         {% for item in portfolio_items %}
-        <div class="glass-panel rounded-3xl p-6 sm:p-8 flex flex-col justify-between border-white/10 glass-card-hover group relative overflow-hidden transition-all duration-300 hover:border-magic-gold/40 hover:shadow-[0_0_30px_rgba(245,158,11,0.15)]">
+        <div
+            class="glass-panel rounded-3xl p-6 sm:p-8 flex flex-col justify-between border-white/10 glass-card-hover group relative overflow-hidden transition-all duration-300 hover:border-magic-gold/40 hover:shadow-[0_0_30px_rgba(245,158,11,0.15)]">
             <div class="space-y-4">
                 <div class="flex items-center justify-between gap-2">
-                    <span class="px-3 py-1 rounded-full text-[11px] font-bold border tracking-wide uppercase {{ item.badge_class }}">
+                    <span
+                        class="px-3 py-1 rounded-full text-[11px] font-bold border tracking-wide uppercase {{ item.badge_class }}">
                         {{ item.category }}
                     </span>
-                    <span class="text-[10px] font-mono text-slate-400 bg-white/5 border border-white/5 px-2 py-0.5 rounded-md">
+                    <span
+                        class="text-[10px] font-mono text-slate-400 bg-white/5 border border-white/5 px-2 py-0.5 rounded-md">
                         .DOCX
                     </span>
                 </div>
 
                 <div class="space-y-2">
-                    <h3 class="font-display text-xl font-bold text-white group-hover:text-magic-gold transition-colors duration-300 leading-snug">
+                    <h3
+                        class="font-display text-xl font-bold text-white group-hover:text-magic-gold transition-colors duration-300 leading-snug">
                         <a href="/portfolio/{{ item.slug }}/" class="focus:outline-none">
                             {{ item.title }}
                         </a>
@@ -415,15 +421,20 @@
             </div>
 
             <div class="pt-6 mt-6 border-t border-white/10 flex items-center justify-between gap-3">
-                <a href="/portfolio/{{ item.slug }}/" class="text-xs font-bold text-magic-gold group-hover:text-white inline-flex items-center gap-1.5 transition-colors">
+                <a href="/portfolio/{{ item.slug }}/"
+                    class="text-xs font-bold text-magic-gold group-hover:text-white inline-flex items-center gap-1.5 transition-colors">
                     <span>View Document</span>
-                    <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                    <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                     </svg>
                 </a>
-                <a href="{% static 'portfoliofiles/' %}{{ item.filename }}" download title="Download raw .docx file" class="text-slate-400 hover:text-magic-gold p-1.5 rounded-lg hover:bg-white/5 transition-colors">
+                <a href="{% static 'portfoliofiles/' %}{{ item.filename }}" download title="Download raw .docx file"
+                    class="text-slate-400 hover:text-magic-gold p-1.5 rounded-lg hover:bg-white/5 transition-colors">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
                     </svg>
                 </a>
             </div>
@@ -791,7 +802,7 @@
                     <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                     <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                 </svg>
-                <span>Casting Summoning Spell...</span>
+                <span>Submitting...</span>
             `;
 
             // Reset status message
@@ -822,7 +833,7 @@
                         return response.json();
                     } else {
                         // Netlify Forms returns HTML pages or other responses, so we mock a standard success response
-                        return { status: "success", message: "Your summoning scroll has been sent! We will return to you within one moon cycle (or 2 business days)." };
+                        return { status: "success", message: "Your contact submission has been sent! We will return to you shorty." };
                     }
                 })
                 .then(data => {
