@@ -6,18 +6,24 @@
 {% block content %}
 <div class="min-h-screen py-10 px-4 sm:px-6 lg:px-8 docx-viewer-container space-y-8 w-full">
     <!-- Navigation & Action Header -->
-    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 glass-panel p-4 sm:p-6 rounded-2xl border-white/10 w-full">
-        <a href="/#portfolio" class="inline-flex items-center gap-2 text-sm font-semibold text-slate-300 hover:text-magic-gold transition-colors duration-200 group">
-            <svg class="w-5 h-5 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+    <div
+        class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 glass-panel p-4 sm:p-6 rounded-2xl border-white/10 w-full">
+        <a href="/#portfolio"
+            class="inline-flex items-center gap-2 text-sm font-semibold text-slate-300 hover:text-magic-gold transition-colors duration-200 group">
+            <svg class="w-5 h-5 transform group-hover:-translate-x-1 transition-transform" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18">
+                </path>
             </svg>
             <span>Back to Portfolio Showcase</span>
         </a>
 
         <div class="flex flex-wrap items-center gap-3">
-            <a href="{% static 'portfoliofiles/' %}{{ item.filename }}" download class="btn btn-sm bg-gradient-to-r from-magic-gold to-yellow-400 text-magic-deep font-bold hover:brightness-110 border-0 rounded-xl shadow-lg transition-all flex items-center gap-2 px-4 py-2 text-xs sm:text-sm">
+            <a href="{% static 'portfoliofiles/' %}{{ item.filename }}" download
+                class="btn btn-sm bg-gradient-to-r from-magic-gold to-yellow-400 text-magic-deep font-bold hover:brightness-110 border-0 rounded-xl shadow-lg transition-all flex items-center gap-2 px-4 py-2 text-xs sm:text-sm">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
                 </svg>
                 <span>Download .DOCX File</span>
             </a>
@@ -26,15 +32,20 @@
 
     <!-- Document Info Hero Banner -->
     <div class="glass-panel p-6 sm:p-10 rounded-3xl border-white/10 space-y-6 relative overflow-hidden w-full">
-        <div class="absolute -right-12 -top-12 w-64 h-64 bg-magic-gold/10 rounded-full blur-3xl pointer-events-none"></div>
-        
+        <div class="absolute -right-12 -top-12 w-64 h-64 bg-magic-gold/10 rounded-full blur-3xl pointer-events-none">
+        </div>
+
         <div class="flex flex-wrap items-center gap-3">
-            <span class="px-3.5 py-1 rounded-full text-xs font-bold border tracking-wide uppercase {{ item.badge_class }}">
+            <span
+                class="px-3.5 py-1 rounded-full text-xs font-bold border tracking-wide uppercase {{ item.badge_class }}">
                 {{ item.category }}
             </span>
-            <span class="text-xs text-slate-400 font-medium flex items-center gap-1.5 bg-white/5 px-3 py-1 rounded-full border border-white/5">
+            <span
+                class="text-xs text-slate-400 font-medium flex items-center gap-1.5 bg-white/5 px-3 py-1 rounded-full border border-white/5">
                 <svg class="w-3.5 h-3.5 text-magic-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                    </path>
                 </svg>
                 {{ item.filename }}
             </span>
@@ -68,13 +79,15 @@
             {% if comment_count %}
             <div class="flex items-center gap-2">
                 <span class="text-slate-500 font-semibold">Editorial Comments:</span>
-                <span class="px-2 py-0.5 rounded-md bg-amber-400/20 text-amber-300 font-bold text-xs">{{ comment_count }}</span>
+                <span class="px-2 py-0.5 rounded-md bg-amber-400/20 text-amber-300 font-bold text-xs">{{ comment_count
+                    }}</span>
             </div>
             {% endif %}
             {% if revision_count %}
             <div class="flex items-center gap-2">
                 <span class="text-slate-500 font-semibold">Tracked Changes:</span>
-                <span class="px-2 py-0.5 rounded-md bg-emerald-400/20 text-emerald-300 font-bold text-xs">{{ revision_count }}</span>
+                <span class="px-2 py-0.5 rounded-md bg-emerald-400/20 text-emerald-300 font-bold text-xs">{{
+                    revision_count }}</span>
             </div>
             {% endif %}
             <div class="flex items-center gap-2">
@@ -86,30 +99,36 @@
 
     <!-- Main Content & Comments Workspace -->
     <div class="docx-viewer-grid {% if comments %}has-sidebar{% else %}no-sidebar{% endif %}">
-        
+
         <!-- Document Viewer Panel -->
         <div class="space-y-4 w-full">
-            
+
             <!-- Controls toolbar -->
-            <div class="flex flex-wrap justify-between items-center bg-magic-indigo/30 p-3 px-5 rounded-xl border border-white/5 text-xs text-slate-300 gap-3 w-full">
+            <div
+                class="flex flex-wrap justify-between items-center bg-magic-indigo/30 p-3 px-5 rounded-xl border border-white/5 text-xs text-slate-300 gap-3 w-full">
                 <span class="font-semibold text-slate-400 flex items-center gap-2">
                     <svg class="w-4 h-4 text-magic-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z">
+                        </path>
                     </svg>
                     Interactive Document Viewer
                 </span>
-                
+
                 <div class="flex items-center gap-4">
                     {% if revision_count %}
                     <label class="inline-flex items-center gap-2 cursor-pointer select-none">
-                        <input type="checkbox" id="toggle-revisions" checked class="checkbox checkbox-xs checkbox-warning rounded">
+                        <input type="checkbox" id="toggle-revisions" checked
+                            class="checkbox checkbox-xs checkbox-warning rounded">
                         <span>Show Tracked Changes</span>
                     </label>
                     {% endif %}
                     {% if comments %}
                     <label class="inline-flex items-center gap-2 cursor-pointer select-none">
-                        <input type="checkbox" id="toggle-comments" checked class="checkbox checkbox-xs checkbox-warning rounded">
+                        <input type="checkbox" id="toggle-comments" checked
+                            class="checkbox checkbox-xs checkbox-warning rounded">
                         <span>Highlight Comments</span>
                     </label>
                     {% endif %}
@@ -117,8 +136,10 @@
             </div>
 
             <!-- Paper Container -->
-            <div class="glass-panel p-6 sm:p-12 rounded-3xl border-white/10 bg-slate-950/80 shadow-2xl relative docx-document-paper">
-                <div class="prose prose-invert max-w-none prose-p:leading-relaxed prose-headings:font-display prose-a:text-magic-gold selection:bg-magic-gold/30 selection:text-white break-words" id="document-rendered-body">
+            <div
+                class="glass-panel p-6 sm:p-12 rounded-3xl border-white/10 bg-slate-950/80 shadow-2xl relative docx-document-paper">
+                <div class="prose prose-invert max-w-none prose-p:leading-relaxed prose-headings:font-display prose-a:text-magic-gold selection:bg-magic-gold/30 selection:text-white break-words"
+                    id="document-rendered-body">
                     {{ html_content|safe }}
                 </div>
             </div>
@@ -131,7 +152,9 @@
                 <div class="flex items-center justify-between border-b border-white/10 pb-3">
                     <h2 class="font-display text-lg font-bold text-white flex items-center gap-2">
                         <svg class="w-5 h-5 text-magic-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z">
+                            </path>
                         </svg>
                         Editor Comments
                     </h2>
@@ -146,13 +169,16 @@
 
                 <div class="space-y-3 max-h-[70vh] overflow-y-auto pr-1 custom-scrollbar" id="comments-list-container">
                     {% for c in comments %}
-                    <div class="glass-panel p-4 rounded-xl border-white/5 hover:border-amber-400/50 transition-all cursor-pointer group comment-card w-full" id="comment-card-{{ c.id }}" data-comment-id="{{ c.id }}">
+                    <div class="glass-panel p-4 rounded-xl border-white/5 hover:border-amber-400/50 transition-all cursor-pointer group comment-card w-full"
+                        id="comment-card-{{ c.id }}" data-comment-id="{{ c.id }}">
                         <div class="flex items-center justify-between gap-2 mb-2">
                             <div class="flex items-center gap-2">
-                                <div class="w-6 h-6 rounded-full bg-magic-gold/20 text-magic-gold text-xs font-bold flex items-center justify-center border border-magic-gold/30 shrink-0">
+                                <div
+                                    class="w-6 h-6 rounded-full bg-magic-gold/20 text-magic-gold text-xs font-bold flex items-center justify-center border border-magic-gold/30 shrink-0">
                                     {{ c.initials|default:"GZ" }}
                                 </div>
-                                <span class="text-xs font-bold text-slate-200 group-hover:text-magic-gold transition-colors">
+                                <span
+                                    class="text-xs font-bold text-slate-200 group-hover:text-magic-gold transition-colors">
                                     {{ c.author }}
                                 </span>
                             </div>
@@ -160,7 +186,8 @@
                         </div>
 
                         {% if c.target_text %}
-                        <div class="text-[11px] text-amber-200/80 bg-amber-500/10 border-l-2 border-amber-400 p-2 rounded-r mb-2 line-clamp-2 italic break-words">
+                        <div
+                            class="text-[11px] text-amber-200/80 bg-amber-500/10 border-l-2 border-amber-400 p-2 rounded-r mb-2 line-clamp-2 italic break-words">
                             "{{ c.target_text }}"
                         </div>
                         {% endif %}
@@ -177,16 +204,20 @@
     </div>
 
     <!-- Bottom CTA Banner -->
-    <div class="glass-panel p-8 sm:p-10 rounded-3xl border-white/10 text-center space-y-4 bg-gradient-to-r from-magic-indigo/40 via-magic-deep to-magic-indigo/40 mt-12 w-full">
+    <div
+        class="glass-panel p-8 sm:p-10 rounded-3xl border-white/10 text-center space-y-4 bg-gradient-to-r from-magic-indigo/40 via-magic-deep to-magic-indigo/40 mt-12 w-full">
         <h3 class="font-display text-2xl sm:text-3xl font-bold text-white">Ready for a Transformative Edit?</h3>
         <p class="text-slate-300 max-w-xl mx-auto text-sm sm:text-base">
-            Send us a chapter of your manuscript and receive a complimentary 1,000-word sample edit tailored specifically to your voice.
+            Send us a chapter of your manuscript and receive a complimentary 1,000-word sample edit tailored
+            specifically to your voice.
         </p>
         <div>
-            <a href="/#contact" class="btn bg-magic-gold text-magic-deep hover:bg-white font-bold rounded-full px-8 py-3 transition-all transform hover:scale-105 shadow-xl inline-flex items-center gap-2">
-                <span>Request Free Sample Edit</span>
+            <a href="/#contact"
+                class="btn bg-magic-gold text-magic-deep hover:bg-white font-bold rounded-full px-8 py-3 transition-all transform hover:scale-105 shadow-xl inline-flex items-center gap-2">
+                <span>Request Free Initial Consultation</span>
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3">
+                    </path>
                 </svg>
             </a>
         </div>
@@ -195,105 +226,108 @@
 
 <!-- Interactive JS for Document Viewer -->
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-    const toggleRevisions = document.getElementById('toggle-revisions');
-    const toggleComments = document.getElementById('toggle-comments');
-    const docBody = document.getElementById('document-rendered-body');
+    document.addEventListener('DOMContentLoaded', function () {
+        const toggleRevisions = document.getElementById('toggle-revisions');
+        const toggleComments = document.getElementById('toggle-comments');
+        const docBody = document.getElementById('document-rendered-body');
 
-    // Toggle Revisions (Tracked Changes)
-    if (toggleRevisions) {
-        toggleRevisions.addEventListener('change', function () {
-            const insElems = docBody.querySelectorAll('.docx-ins');
-            const delElems = docBody.querySelectorAll('.docx-del');
-            
-            insElems.forEach(el => {
-                if (this.checked) {
-                    el.classList.remove('no-underline', 'bg-transparent', 'text-slate-200');
-                    el.classList.add('bg-emerald-500/20', 'text-emerald-300', 'underline');
-                } else {
-                    el.classList.remove('bg-emerald-500/20', 'text-emerald-300', 'underline');
-                    el.classList.add('no-underline', 'bg-transparent', 'text-slate-200');
-                }
+        // Toggle Revisions (Tracked Changes)
+        if (toggleRevisions) {
+            toggleRevisions.addEventListener('change', function () {
+                const insElems = docBody.querySelectorAll('.docx-ins');
+                const delElems = docBody.querySelectorAll('.docx-del');
+
+                insElems.forEach(el => {
+                    if (this.checked) {
+                        el.classList.remove('no-underline', 'bg-transparent', 'text-slate-200');
+                        el.classList.add('bg-emerald-500/20', 'text-emerald-300', 'underline');
+                    } else {
+                        el.classList.remove('bg-emerald-500/20', 'text-emerald-300', 'underline');
+                        el.classList.add('no-underline', 'bg-transparent', 'text-slate-200');
+                    }
+                });
+
+                delElems.forEach(el => {
+                    if (this.checked) {
+                        el.style.display = 'inline';
+                    } else {
+                        el.style.display = 'none';
+                    }
+                });
             });
+        }
 
-            delElems.forEach(el => {
-                if (this.checked) {
-                    el.style.display = 'inline';
-                } else {
-                    el.style.display = 'none';
-                }
+        // Toggle Comments
+        if (toggleComments) {
+            toggleComments.addEventListener('change', function () {
+                const commentMarks = docBody.querySelectorAll('.docx-comment-highlight');
+                commentMarks.forEach(el => {
+                    if (this.checked) {
+                        el.classList.add('bg-amber-400/30', 'border-b-2', 'border-amber-400');
+                    } else {
+                        el.classList.remove('bg-amber-400/30', 'border-b-2', 'border-amber-400');
+                    }
+                });
             });
-        });
-    }
+        }
 
-    // Toggle Comments
-    if (toggleComments) {
-        toggleComments.addEventListener('change', function () {
-            const commentMarks = docBody.querySelectorAll('.docx-comment-highlight');
-            commentMarks.forEach(el => {
-                if (this.checked) {
-                    el.classList.add('bg-amber-400/30', 'border-b-2', 'border-amber-400');
-                } else {
-                    el.classList.remove('bg-amber-400/30', 'border-b-2', 'border-amber-400');
-                }
-            });
-        });
-    }
+        // Comment Card & Highlight Interactivity
+        const commentCards = document.querySelectorAll('.comment-card');
+        const commentMarks = docBody.querySelectorAll('.docx-comment-highlight');
 
-    // Comment Card & Highlight Interactivity
-    const commentCards = document.querySelectorAll('.comment-card');
-    const commentMarks = docBody.querySelectorAll('.docx-comment-highlight');
+        commentCards.forEach(card => {
+            card.addEventListener('click', function () {
+                const cid = this.getAttribute('data-comment-id');
+                const targetHighlights = docBody.querySelectorAll(`.comment-highlight-${cid}`);
 
-    commentCards.forEach(card => {
-        card.addEventListener('click', function () {
-            const cid = this.getAttribute('data-comment-id');
-            const targetHighlights = docBody.querySelectorAll(`.comment-highlight-${cid}`);
-
-            // Remove active states
-            commentCards.forEach(c => c.classList.remove('ring-2', 'ring-magic-gold', 'bg-amber-500/20'));
-            commentMarks.forEach(m => m.classList.remove('ring-2', 'ring-magic-gold', 'bg-amber-400/70'));
-
-            // Highlight active card
-            this.classList.add('ring-2', 'ring-magic-gold', 'bg-amber-500/20');
-
-            if (targetHighlights.length > 0) {
-                targetHighlights[0].scrollIntoView({ behavior: 'smooth', block: 'center' });
-                targetHighlights.forEach(th => th.classList.add('ring-2', 'ring-magic-gold', 'bg-amber-400/70'));
-            }
-        });
-    });
-
-    commentMarks.forEach(mark => {
-        mark.addEventListener('click', function () {
-            const cidsStr = this.getAttribute('data-comment-ids');
-            if (!cidsStr) return;
-            const firstCid = cidsStr.split(',')[0];
-            const targetCard = document.getElementById(`comment-card-${firstCid}`);
-
-            if (targetCard) {
+                // Remove active states
                 commentCards.forEach(c => c.classList.remove('ring-2', 'ring-magic-gold', 'bg-amber-500/20'));
-                targetCard.classList.add('ring-2', 'ring-magic-gold', 'bg-amber-500/20');
-                targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }
+                commentMarks.forEach(m => m.classList.remove('ring-2', 'ring-magic-gold', 'bg-amber-400/70'));
+
+                // Highlight active card
+                this.classList.add('ring-2', 'ring-magic-gold', 'bg-amber-500/20');
+
+                if (targetHighlights.length > 0) {
+                    targetHighlights[0].scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    targetHighlights.forEach(th => th.classList.add('ring-2', 'ring-magic-gold', 'bg-amber-400/70'));
+                }
+            });
+        });
+
+        commentMarks.forEach(mark => {
+            mark.addEventListener('click', function () {
+                const cidsStr = this.getAttribute('data-comment-ids');
+                if (!cidsStr) return;
+                const firstCid = cidsStr.split(',')[0];
+                const targetCard = document.getElementById(`comment-card-${firstCid}`);
+
+                if (targetCard) {
+                    commentCards.forEach(c => c.classList.remove('ring-2', 'ring-magic-gold', 'bg-amber-500/20'));
+                    targetCard.classList.add('ring-2', 'ring-magic-gold', 'bg-amber-500/20');
+                    targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            });
         });
     });
-});
 </script>
 
 <style>
-.custom-scrollbar::-webkit-scrollbar {
-    width: 6px;
-}
-.custom-scrollbar::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.03);
-    border-radius: 9999px;
-}
-.custom-scrollbar::-webkit-scrollbar-thumb {
-    background: rgba(245, 158, 11, 0.3);
-    border-radius: 9999px;
-}
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: rgba(245, 158, 11, 0.6);
-}
+    .custom-scrollbar::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 9999px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: rgba(245, 158, 11, 0.3);
+        border-radius: 9999px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background: rgba(245, 158, 11, 0.6);
+    }
 </style>
 {% endblock %}
